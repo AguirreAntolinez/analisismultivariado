@@ -5,7 +5,7 @@ library(ggplot2)
 library(factoextra)
 #Normalizar los datos
 scaledf<-scale(df)
-#Calcular la optimo de cluster
+#Calcular la optimo de cluster en este caso se ultiliza el kmeans pero puede aplicarse otros algoritmos para conformar los clusters cambiando el nombre del algoritmo en el código. 
 f1.1<-fviz_nbclust(scaledf, kmeans, method = "wss",k.max=8) #k.max=8 es un valor arbitrario, se puede aumentar o reducir según convenga
 f1.2<-fviz_nbclust(scaledf, kmeans, method = "silhouette",k.max=8)
 require(gridExtra)
