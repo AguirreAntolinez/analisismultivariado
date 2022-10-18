@@ -1,0 +1,8 @@
+paquetes<-c("readxl","summarytools","dplyr","factoextra","FactoMineR","tibble")
+sapply(paquetes,require,character.only = TRUE)
+df <- read_excel("caracteristicas mercado laboral.xlsx", sheet="Data")
+names(df)
+df<-column_to_rownames(df, var = "...1")
+df<-na.omit(df)
+pca <- prcomp(df, scale = TRUE)
+biplot(pca, col=c("blue","red"),main="Caracterización del mercado laboral colombiano")
